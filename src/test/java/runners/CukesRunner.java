@@ -1,4 +1,4 @@
-package com.cydeo.runners;
+package runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber"
         },
         features = "src/test/resources/features",
-        glue = "com/cydeo/stepDefinitions",
+        glue = "stepDefinitions",
         dryRun = false,
-        tags = "@femaleScientists" //Tag verdiğin yeri execute'luyo sadece.
+        tags = "@holymoly" //Tag verdiğin yeri execute'luyo sadece.
                             // --"or, and, and not" keyword'leriyle birden fazla executable scenario oluşturabiliyoruz--
 )
 public class CukesRunner {

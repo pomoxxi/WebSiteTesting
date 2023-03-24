@@ -1,12 +1,12 @@
-package com.cydeo.pages;
+package pages;
 
-import com.cydeo.utilities.Driver;
+import utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NazimAccountCreatedPage {
-    public NazimAccountCreatedPage(){
+public class AccountCreatedPage {
+    public AccountCreatedPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//h2//b")

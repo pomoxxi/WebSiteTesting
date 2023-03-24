@@ -1,13 +1,12 @@
-package com.cydeo.pages;
+package pages;
 
-import com.cydeo.utilities.Driver;
+import utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
-public class NazimSignUpPage {
-    public NazimSignUpPage(){
+public class SignUpPage {
+    public SignUpPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

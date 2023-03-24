@@ -1,25 +1,23 @@
-package com.cydeo.stepDefinitions;
+package pages;
 
-import com.cydeo.pages.*;
-import com.cydeo.utilities.Driver;
+import utilities.Driver;
 import com.github.javafaker.Faker;
-import org.junit.Assert;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.Select;
 
-public class NazimRegisterUserStepDefinitions {
-    NazimHomePage nazimHomePage = new NazimHomePage();
-    NazimLoginPage nazimLoginPage = new NazimLoginPage();
-    NazimSignUpPage nazimSignUpPage = new NazimSignUpPage();
-    NazimAccountCreatedPage nazimAccountCreatedPage = new NazimAccountCreatedPage();
-    NazimDeleteAccountPage nazimDeleteAccountPage = new NazimDeleteAccountPage();
-    NazimIframeCancelPage nazimIframeCancelPage = new NazimIframeCancelPage();
+public class RegisterUserStepDefinitions {
+    HomePage nazimHomePage = new HomePage();
+    LoginPage loginPage = new LoginPage();
+    SignUpPage signUpPage = new SignUpPage();
+    AccountCreatedPage nazimAccountCreatedPage = new AccountCreatedPage();
+    DeleteAccountPage nazimDeleteAccountPage = new DeleteAccountPage();
+    IframeCancelPage iframeCancelPage = new IframeCancelPage();
 
 
     Faker faker = new Faker();
@@ -43,7 +41,7 @@ public class NazimRegisterUserStepDefinitions {
     @When("User should see New User Signup!")
     public void user_should_see() {
         String expectedText = "New User Signup!";
-        String actualText = nazimLoginPage.newUserSignupText.getText();
+        String actualText = loginPage.newUserSignupText.getText();
 
         Assert.assertEquals(expectedText,actualText);
 
@@ -52,69 +50,69 @@ public class NazimRegisterUserStepDefinitions {
     public void user_should_enter_and() {
 
         String name = faker.name().name();
-        nazimLoginPage.name.sendKeys(name);
+        loginPage.name.sendKeys(name);
 
         String email = faker.name().firstName() + "@email";
-        nazimLoginPage.email.sendKeys(email);
+        loginPage.email.sendKeys(email);
 
     }
     @When("User should click Signup button")
     public void user_should_click_button() {
-        nazimLoginPage.signupButton.click();
+        loginPage.signupButton.click();
 
     }
     @When("User should see Enter Account Information")
     public void user_sees() {
 
         String expectedText = "Enter Account Information";
-        String actualText = nazimSignUpPage.EnterAccountInfoText.getText();
+        String actualText = signUpPage.EnterAccountInfoText.getText();
 
     }
     @When("User should fill details: firstName, lastName, Company, address, address2, country, State, city, zipcode, mobileNumber")
     public void user_should_fill_details() {
 
         String name = faker.name().firstName();
-        nazimSignUpPage.firstNameBox.sendKeys(name);
+        signUpPage.firstNameBox.sendKeys(name);
 
         String lastName = faker.name().lastName();
-        nazimSignUpPage.lastNameBox.sendKeys(lastName);
+        signUpPage.lastNameBox.sendKeys(lastName);
 
         String company = faker.company().name();
-        nazimSignUpPage.companyNameBox.sendKeys(company);
+        signUpPage.companyNameBox.sendKeys(company);
 
         String address = faker.address().fullAddress();
-        nazimSignUpPage.addressBox.sendKeys(address);
+        signUpPage.addressBox.sendKeys(address);
 
         String address2 = faker.address().secondaryAddress();
-        nazimSignUpPage.addressBox2.sendKeys(address2);
+        signUpPage.addressBox2.sendKeys(address2);
 
         Select drpCountry = new Select(Driver.getDriver().findElement(By.xpath("//select[@id='country']")));
         drpCountry.selectByVisibleText("Australia");
 
         String state = faker.address().state();
-        nazimSignUpPage.stateBox.sendKeys(state);
+        signUpPage.stateBox.sendKeys(state);
 
         String city = faker.address().city();
-        nazimSignUpPage.cityBox.sendKeys(city);
+        signUpPage.cityBox.sendKeys(city);
 
         String zipcode = faker.address().zipCode();
-        nazimSignUpPage.zipcodeBox.sendKeys(zipcode);
+        signUpPage.zipcodeBox.sendKeys(zipcode);
 
         String mobilNumber = faker.phoneNumber().phoneNumber();
-        nazimSignUpPage.mobileNumberBox.sendKeys(mobilNumber);
+        signUpPage.mobileNumberBox.sendKeys(mobilNumber);
     }
     @When("User should click Create account button")
     public void user_should_click() {
-        nazimSignUpPage.createAccountButton.click();
+        signUpPage.createAccountButton.click();
 
     }
     @When("User should fill details: Title, Name, Email, Password, Date of birth")
     public void user_should_fill_details_title_name_email_password_date_of_birth() {
 
-        nazimSignUpPage.mrRadio.click();
+        signUpPage.mrRadio.click();
 
         String password = faker.name().firstName();
-        nazimSignUpPage.passwordBox.sendKeys(password);
+        signUpPage.passwordBox.sendKeys(password);
 
         Select drpDays = new Select(Driver.getDriver().findElement(By.xpath("//select[@id='days']")));
         drpDays.selectByVisibleText("5");
@@ -126,12 +124,12 @@ public class NazimRegisterUserStepDefinitions {
     }
     @When("User should select checkbox Sign up for our newsletter!")
     public void user_should_select_checkbox_sign_up_for_our_newsletter() {
-        nazimSignUpPage.newstallerCheckBox.click();
+        signUpPage.newstallerCheckBox.click();
 
     }
     @When("User should select checkbox Receive special offers from our partners!")
     public void user_should_select_checkbox_receive_special_offers_from_our_partners() {
-        nazimSignUpPage.offersCheckBox.click();
+        signUpPage.offersCheckBox.click();
 
     }
 

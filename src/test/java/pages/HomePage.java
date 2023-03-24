@@ -1,13 +1,12 @@
-package com.cydeo.pages;
+package pages;
 
-import com.cydeo.utilities.Driver;
+import utilities.Driver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NazimHomePage {
-    public NazimHomePage(){
+public class HomePage {
+    public HomePage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -17,7 +16,7 @@ public class NazimHomePage {
     @FindBy(xpath = "//i[@class='fa fa-lock']")
     public WebElement signupButton;
 
-    @FindBy(xpath = "//i[@class='fa fa-user']")
+    @FindBy(xpath = "//*[contains(text(),' Logged in as ')]")
     public WebElement loggedInAs;
 
     @FindBy(xpath = "//a//i[@class='fa fa-trash-o']")

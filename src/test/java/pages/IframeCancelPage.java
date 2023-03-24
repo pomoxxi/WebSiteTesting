@@ -1,12 +1,12 @@
-package com.cydeo.pages;
+package pages;
 
-import com.cydeo.utilities.Driver;
+import utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NazimIframeCancelPage {
-    public NazimIframeCancelPage(){
+public class IframeCancelPage {
+    public IframeCancelPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "//span[@class='ns-gwtvw-e-7']")
